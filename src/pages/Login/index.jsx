@@ -29,7 +29,7 @@ const Login = () => {
   return {
     /*
         Crie uma div pai com className="login-container".
-        Crie <img src="public/images/logo.png" style={{ width: 50 }} />
+        Crie <img src="/images/logo.png" style={{ width: 50 }} />
         Crie um h2 com className="login-title".
         Crie um input do tipo text com placeholder e value={username} e  onChange={(e) => setUsername(e.target.value)}.
         Crie um input do tipo password com placeholder e  value={password} e  onChange={(e) => setPassword(e.target.value)}.
