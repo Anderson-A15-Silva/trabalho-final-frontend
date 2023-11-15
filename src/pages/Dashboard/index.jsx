@@ -1,6 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import "./index.css";
 
 const Dashboard = () => {
+  const navigate = useNavigate();
+  const isAuthenticated = JSON.parse(localStorage.getItem("authenticated"));
   // Crie um state para list iniciando com um array vazio.
 
   // Crie um state para filteredList iniciando com um array vazio.
@@ -11,7 +14,7 @@ const Dashboard = () => {
 
   // Crie um state para expense iniciando como 0.
 
-  /* 
+  /*
       Crie um useEffect que tenha list, currentMonth e setFilteredList como dependência.
       Dentro dele crie uma const monthList que recebe o valor da função filterListByMonth(list, currentMonth)
       Use setFilteredList com o valor da monthList.
@@ -36,10 +39,23 @@ const Dashboard = () => {
       Em seguida use setList com o valor de newList.
   */
 
+  const handleLogout = (e) => {
+    e.preventDefault();
+    localStorage.setItem("authenticated", "false");
+    navigate("/login");
+  };
+
+  if (!isAuthenticated) {
+    navigate("/login");
+  }
+
   return (
     <div>
       <div className="header">
         <h1 className="headerText">Sistema Financeiro</h1>
+        <button className="logout" onClick={handleLogout}>
+          Logout
+        </button>
       </div>
       <div className="body">
         {/* Insira a InfoArea e suas props */}
