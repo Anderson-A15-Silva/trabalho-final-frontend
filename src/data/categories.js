@@ -4,4 +4,5 @@ export const categories = {
   salary: { title: "Salário", color: "#008000", expense: false },
   water: { title: "Água", color: "#6495ED33", expense: true },
   energy: { title: "Energia", color: "#FFA500", expense: true },
+  debts: { title: "Dívidas", color: "#aa0000", expense: true},
 };

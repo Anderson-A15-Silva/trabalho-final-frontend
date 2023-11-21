@@ -1,13 +1,15 @@
 import { redirect, useNavigate } from "react-router-dom";
+import { useState } from "react";
 import "./index.css";
 
 const Login = () => {
   const navigate = useNavigate();
   // Crie um state para username iniciando como string vazia.
-
+  const [username, setUsername] = useState("");
   // Crie um state para password iniciando como string vazia.
-
+  const [password, setPassword] = useState("");
   // Crie um state para message iniciando como string vazia.
+  const [message, setMessage] = useState("");
 
   const handleLogin = async () => {
     await fetch("/users.json")
@@ -26,7 +28,7 @@ const Login = () => {
       });
   };
 
-  return {
+  return (
     /*
         Crie uma div pai com className="login-container".
         Crie <img src="/images/logo.png" style={{ width: 50 }} />
@@ -36,7 +38,15 @@ const Login = () => {
         Crie um buttom com className="login-button" e onClick direcionando para a função handleLogin.
         Crie um p recebendo o valor de message.
       */
-  };
+    <div className="login-container">
+      <img src="/images/logo.png" style={{ width: 50 }} />
+      <h2 className="login-title">Título do Login</h2>
+      <input type="text" placeholder="Digite o nome do usuário..." value={username} onChange={(e) => setUsername(e.target.value)} />
+      <input type="password" placeholder="Digite a senha do usuário..." value={password} onChange={(e) => setPassword(e.target.value)} />
+      <button  className="login-button" onClick={handleLogin}>Entrar</button>
+      <p>{message}</p>
+    </div>
+  )
 };
 
 export default Login;

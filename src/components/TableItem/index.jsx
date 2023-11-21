@@ -3,12 +3,13 @@ import { categories } from "../../data/categories";
 import "./index.css";
 
 // Insira a prop necessária.
-export const TableItem = () => {
+export const TableItem = ({ item}) => {
+  console.log(item)
   // Insira nos elementos td a className="tableColumn"
   return (
     <tr>
-      <td>{formatDate(item.date)}</td>
-      <td>
+      <td  className="tableColumn">{formatDate(item.date)}</td>
+      <td  className="tableColumn">
         <div
           className="category"
           style={{ color: categories[item.category].color }}
@@ -16,12 +17,12 @@ export const TableItem = () => {
           {categories[item.category].title}
         </div>
       </td>
-      <td>{item.title}</td>
-      <td>
+      <td  className="tableColumn">{item.title}</td>
+      <td  className="tableColumn">
         <div
           className="value"
           style={{
-            color: categories[item.category].expense ? "red" : "green",
+            color: categories[item.category].expense ? "red" : "green"
           }}
         >
           R$ {item.value}
